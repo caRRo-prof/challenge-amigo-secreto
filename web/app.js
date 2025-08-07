@@ -5,10 +5,10 @@
  * agregarán a una lista visible al hacer clic en "Adicionar".
  */
 
-let amigos=[]
-function agregarNombres(parameters) {
+let amigos=["Ana", "Raul", "Cristina","Lupita"]
+function agregarAmigo() {
    let nombre = document.getElementById("amigo").value;
-   
+   validarEntrada(nombre);
 }
 /**
  Si el campo de texto está vacío, el programa mostrará una alerta 
@@ -20,18 +20,33 @@ function validarEntrada(nombre) {
     else{
         amigos.push(nombre);
         document.getElementById("amigo").value="";
+        visualizarLista();
     }
 }
 /**
  *Los nombres ingresados aparecerán en una lista debajo del campo de entrada.
  */
-function visualizarLista(parameters) {
-    
+function visualizarLista() {
+    let lista = document.getElementById("listaAmigos");
+    lista.innerHTML="";
+    for (var i = 0; i < amigos.length; i++) {
+        const option = document.createElement("li");
+        option.textContent=amigos[i];
+        lista.appendChild(option);
+    }
 }
+
 /**
  * Al hacer clic en el botón "Sortear Amigo", se seleccionará aleatoriamente 
  * un nombre de la lista y se mostrará en la página.
  */
-function sortearAleatorio(parameters) {
-    
+function sortearAmigo() {
+    if (amigos.length!==0) {
+        const indice = Math.floor(Math.random() * amigos.length);
+        const amigo = amigos[indice];
+        document.getElementById("resultado").value="Tu amigo secreto es: "+amigo;
+        console.log(amigo);
+    }
+    else
+        console.log("No hay amigos en la lisa");
 }
