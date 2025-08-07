@@ -39,6 +39,7 @@ function visualizarLista() {
 /**
  * Al hacer clic en el botón "Sortear Amigo", se seleccionará aleatoriamente 
  * un nombre de la lista y se mostrará en la página.
+ * TERMINADO
  */
 function sortearAmigo() {
     const lista =document.getElementById("resultado");
