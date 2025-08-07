@@ -41,10 +41,15 @@ function visualizarLista() {
  * un nombre de la lista y se mostrará en la página.
  */
 function sortearAmigo() {
+    const lista =document.getElementById("resultado");
+    lista.innerHTML="";
     if (amigos.length!==0) {
         const indice = Math.floor(Math.random() * amigos.length);
         const amigo = amigos[indice];
-        document.getElementById("resultado").value="Tu amigo secreto es: "+amigo;
+        
+        const option = document.createElement("li");
+        option.textContent=amigo;
+        lista.appendChild(option);
         console.log(amigo);
     }
     else
